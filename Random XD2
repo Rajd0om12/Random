@@ -18,7 +18,7 @@ local is_Mobile = game:GetService("UserInputService").TouchEnabled
 
 if not is_Mobile then
 	blur_shader.Size = 25
-	color_shader.Saturation = 0.2
+	color_shader.Saturation = -0.5
 end
 
 local function animate_elements(speed: number)
@@ -31,7 +31,7 @@ end
 
 function nurysium: open()
 	tween_service:Create(color_shader, TweenInfo.new(1.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
-		Saturation = 0.2
+		Saturation = -0.5
 	}):Play()
 
 	tween_service:Create(blur_shader, TweenInfo.new(0.65, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
