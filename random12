@@ -4,6 +4,7 @@ local tween_service = game:GetService("TweenService")
 local user_input = game:GetService("UserInputService")
 
 local ui = nil
+
 local uiVisible = nil
 
 local search_table = {}
@@ -17,8 +18,8 @@ local blur_shader = Instance.new("BlurEffect", workspace.CurrentCamera)
 local is_Mobile = game:GetService("UserInputService").TouchEnabled
 
 if not is_Mobile then
-	blur_shader.Size = 25
-	color_shader.Saturation = -0.5
+	blur_shader.Size = 0
+	color_shader.Saturation = 0
 end
 
 local function animate_elements(speed: number)
@@ -31,11 +32,11 @@ end
 
 function nurysium: open()
 	tween_service:Create(color_shader, TweenInfo.new(1.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
-		Saturation = -0.5
+		Saturation = 0
 	}):Play()
 
 	tween_service:Create(blur_shader, TweenInfo.new(0.65, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
-		Size = 25
+		Size = 0
 	}):Play()
 
 	task.delay(0.65, function()
